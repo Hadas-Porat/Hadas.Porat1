@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hobbies</title>
+</head>
+<body>
+
+<div>{% set page_name = 'Hobbies' %}
+{% include 'header.html' %}</div>
+
+<h1>Hello {{ name | default ('Strager', true) }}</h1>
+
+
+{% if currect_user %}
+<h1>Hello {{ currect_user.firstname }} {{ currect_user.lastname }}</h1>
+{% else %}
+<h1>Hello Stranger</h1>
+{% endif %}
+
+<h1>These are my hobbies:</h1>
+<ol>
+    {% for hobby in hobbies %}
+    <li> {{ hobby }}</li>
+    {% endfor %}
+</ol>
+
+
+{% extends 'friends.html' %}
+{% block friends %}
+<h1>Esti, Shahar, Lior, Shir</h1>
+{% endblock %}
+
+
+</body>
+</html>

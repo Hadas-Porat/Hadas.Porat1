@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="stylesheet"  href="/static/cv.css">
+        <script src="/static/cv.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CV site - Hadas Porat</title>
+    </head>
+    <body>
+     <p>Date/Time: <span id="datetime"></span></p>
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+    <div class="row">
+
+            <div class="Ball">
+                <h1>Hello!</h1><br><br><br>
+                <h3>Hadas Porat<br>
+                    Business Analyst<br>
+                </h3>
+            </div>
+
+             <div class="col-3 item1">
+                 <img src="/static/Image_1.jpeg" style="width:150px;height:150px;">
+             </div>
+        </div>
+        <div cass="row">
+        <div class="col-1 item2"><a href="{{ url_for('resume') }}">Resume</div>
+        <div class="col-2 item3">
+            <a href="{{ url_for('contact_me') }}">Contact me<br>
+            <a href="{{ url_for('contactList') }}">Click for contact list<br>
+                <a href="{{ url_for('hobbies_page') }}">Assignment_8
+        </div>
+        </div>
+        </div>
+
+    </body>
+</html>

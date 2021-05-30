@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"]{
+    float: left;
+    padding: 15px;
+}
+
+/*for pc: */
+.col-1 {width: 33.33%}
+.col-2 {width: 66.67%}
+.col-3{width: 100%}
+
+.Ball{
+    height: 300px;
+    width: 300px;
+    background-color: LightGray;
+    border-radius: 100%;
+    text-align: center;
+    animation:
+    pulse 5s ease infinite alternate,
+    nudge 2s linear infinite;
+}
+
+.item1{
+    padding: 50px;
+    border: 1px solid black;
+}
+
+.item2{
+    background-color: Violet;
+    padding: 50px;
+    border: 1px solid black;
+    float: left;
+    width: 25%;
+
+}
+
+.item3{
+    background-color: SlateBlue;
+    padding: 50px;
+    border: 1px solid black;
+    float: left;
+    width: 75%;
+}
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+}
+
+*{
+    text-align: center;
+    font-family: Tahoma;
+}
+
+@keyframes pulse {
+    0% {background-color: Gray}
+    50% {background-color: DodgerBlue}
+    100% {background-color: Gray}
+}
+
+@keyframes nudge {
+    0%, 100%{
+        transform: translate(0,0);
+    }
+    50%{
+        transform: translate(100px,0px);
+    }
+    80%{
+        transform: translate(-100px,0px);
+    }
+}
+
+@media only screen and (max-width: 4000px) {
+    [class*="col-"]{
+        width: 100%;
+    }
+    body{
+        background-color: LightGray;
+    }
+
+}
