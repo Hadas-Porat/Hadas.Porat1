@@ -5,6 +5,7 @@
         <script src="/static/cv.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CV site - Hadas Porat</title>
+         {% include ('Welcome.html') %}
     </head>
     <body>
      <p>Date/Time: <span id="datetime"></span></p>
@@ -30,7 +31,8 @@ document.getElementById("datetime").innerHTML = dt.toLocaleString();
         <div class="col-2 item3">
             <a href="{{ url_for('contact_me') }}">Contact me<br>
             <a href="{{ url_for('contactList') }}">Click for contact list<br>
-                <a href="{{ url_for('hobbies_page') }}">Assignment_8
+                <a href="{{ url_for('hobbies_page') }}">Assignment_8<br>
+                    <a href="{{ url_for('ass9') }}">Assignment_9
         </div>
         </div>
         </div>
