@@ -134,11 +134,6 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-
-
-
-
-
 def interact_db(query, query_type: str):
     return_value = False
     connection = mysql.connector.connect(host='localhost',
@@ -161,4 +156,31 @@ def interact_db(query, query_type: str):
     return return_value
 
 
+@app.route('/assignment11/users', methods=['GET'])
+def returnusersjsonify():
+    if request.method == 'GET':
+        query = "select * from users"
+        query_result = interact_db(query=query, query_type='fetch')
+        data = list(map(lambda row: row._asdict(), query_result))
+        data = jsonify(data)
+    return data
 
+@app.route('/assignment11/users/selected',defaults = {'SOME_USER_ID':7})
+@app.route('/assignment11/users/selected/<int:SOME_USER_ID>')
+def profile_func(SOME_USER_ID):
+    if SOME_USER_ID == 7:
+        query = "SELECT * FROM users WHERE id=7;"
+        query_result = interact_db(query=query, query_type='fetch')
+        response = query_result[0]
+        response = jsonify(response)
+        return response
+    else:
+        query = "SELECT * FROM users WHERE id='%s';" %SOME_USER_ID
+        query_result = interact_db(query=query,query_type='fetch')
+        response = {}
+        if len(query_result) != 0:
+            response = query_result[0]
+        else :
+            return "This user doesn't exist"
+        response = jsonify(response)
+    return response
